@@ -141,7 +141,7 @@ public class MongodbSourceTask extends SourceTask {
         while (!reader.isEmpty()) {
             Document message = reader.pool();
             Struct messageStruct = getStruct(message);
-            String topic = getTopic(message);
+            String topic = topicPrefix;
             String db = getDB(message);
             String timestamp = getTimestamp(message);
             Object objectKey = ((Map<String, Object>) message.get("o")).get("_id");
